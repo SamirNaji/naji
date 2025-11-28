@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Portfolio</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- English Font: Poppins -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
+    <!-- Arabic Font: Cairo -->
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#2563eb', // Blue-600
+                        secondary: '#1e293b', // Slate-800
+                        accent: '#f59e0b', // Amber-500
+                    },
+                    fontFamily: {
+                        en: ['Poppins', 'sans-serif'],
+                        ar: ['Cairo', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #888;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #555;
+        }
+
+        /* Transition for direction change */
+        body {
+            transition: all 0.3s ease-in-out;
+        }
+    </style>
+</head>
+
+<body class="font-en bg-gray-50 text-slate-800">
+
+    <!-- Navbar -->
+    <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
+        <div class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold text-primary" data-i18n="logo">DevPortfolio</a>
+
+            <div class="flex items-center gap-6">
+                <div class="hidden md:flex gap-6">
+                    <a href="#about" class="hover:text-primary transition-colors" data-i18n="nav_about">About</a>
+                    <a href="#projects" class="hover:text-primary transition-colors"
+                        data-i18n="nav_projects">Projects</a>
+                    <a href="#contact" class="hover:text-primary transition-colors" data-i18n="nav_contact">Contact</a>
+                </div>
+
+                <!-- Language Toggle Button -->
+                <button id="lang-toggle"
+                    class="flex items-center gap-2 px-4 py-2 rounded-full bg-slate-100 hover:bg-slate-200 transition-colors font-medium text-sm">
+                    <span id="lang-label">العربية</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                        stroke="currentColor" class="w-5 h-5">
+                        <path stroke-linecap="round" stroke-linejoin="round"
+                            d="M12 21a9.004 9.004 0 008.716-6.747M12 21a9.004 9.004 0 01-8.716-6.747M12 21c2.485 0 4.5-4.03 4.5-9S13.622 3 12 3m0 18c-2.485 0-4.5-4.03-4.5-9S9.622 3 12 3m0 0a8.997 8.997 0 017.843 4.582M12 3a8.997 8.997 0 00-7.843 4.582m15.686 0A11.953 11.953 0 0112 10.5c-2.998 0-5.74-1.1-7.843-2.918m15.686 0A8.959 8.959 0 0121 12c0 .778-.099 1.533-.284 2.253m0 0A17.919 17.919 0 0112 16.5c-3.162 0-6.133-.815-8.716-2.247m0 0A9.015 9.015 0 013 12c0-1.605.546-3.085 1.457-4.293m0 0c2.103 1.819 4.845 2.918 7.843 2.918a11.954 11.954 0 007.843-2.918" />
+                    </svg>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="about" class="min-h-screen flex items-center pt-20">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
+                <!-- Text Content -->
+                <div class="w-full md:w-1/2 space-y-6 text-center md:text-start">
+                    <span class="inline-block px-4 py-2 rounded-full bg-blue-100 text-primary font-medium text-sm"
+                        data-i18n="hero_badge">Senior Frontend Developer</span>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">
+                        <span data-i18n="hero_greeting">Hello, I'm</span> <br>
+                        <span class="text-primary" data-i18n="hero_name">Ahmed Ali</span>
+                    </h1>
+                    <p class="text-lg text-gray-600 leading-relaxed max-w-lg mx-auto md:mx-0" data-i18n="hero_desc">
+                        I build pixel-perfect, engaging, and accessible digital experiences. Specialized in modern web
+                        technologies and UI/UX design.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="#contact"
+                            class="px-8 py-4 bg-primary text-white rounded-lg font-semibold hover:bg-blue-700 transition-all shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+                            data-i18n="hero_cta_primary">
+                            Contact Me
+                        </a>
+                        <a href="#projects"
+                            class="px-8 py-4 bg-white text-slate-800 border-2 border-slate-200 rounded-lg font-semibold hover:border-primary hover:text-primary transition-all"
+                            data-i18n="hero_cta_secondary">
+                            View Projects
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Image -->
+                <div class="w-full md:w-1/2 flex justify-center md:justify-end">
+                    <div class="relative w-72 h-72 md:w-96 md:h-96">
+                        <div class="absolute inset-0 bg-blue-200 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+                        <img src="profile.jpg" alt="Profile"
+                            class="relative w-full h-full object-cover rounded-2xl shadow-2xl border-4 border-white transform rotate-3 hover:rotate-0 transition-all duration-500">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-20 bg-white">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="projects_title">Featured Projects</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="projects_subtitle">A selection of my recent work
+                    building modern web applications.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Project Card 1 -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-blue-400 to-purple-500 group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <img src="project1.png" alt="E-commerce Dashboard"
+                            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors"
+                            data-i18n="project1_title">E-commerce Dashboard</h3>
+                        <p class="text-gray-600 mb-4 text-sm" data-i18n="project1_desc">A comprehensive dashboard for
+                            managing online stores, built with React and Tailwind.</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-blue-100 text-blue-600 text-xs rounded-full">React</span>
+                            <span class="px-3 py-1 bg-purple-100 text-purple-600 text-xs rounded-full">Tailwind</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline gap-1">
+                            <span data-i18n="view_project">View Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="w-4 h-4 rtl:rotate-180">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 2 -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-emerald-400 to-teal-500 group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <img src="project2.png" alt="Finance App"
+                            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors"
+                            data-i18n="project2_title">Finance App</h3>
+                        <p class="text-gray-600 mb-4 text-sm" data-i18n="project2_desc">Personal finance tracker with
+                            data visualization and budget management tools.</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-emerald-100 text-emerald-600 text-xs rounded-full">Vue.js</span>
+                            <span class="px-3 py-1 bg-teal-100 text-teal-600 text-xs rounded-full">Chart.js</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline gap-1">
+                            <span data-i18n="view_project">View Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="w-4 h-4 rtl:rotate-180">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Project Card 3 -->
+                <div
+                    class="group bg-gray-50 rounded-xl overflow-hidden hover:shadow-xl transition-all duration-300 border border-gray-100">
+                    <div class="h-48 bg-gray-200 relative overflow-hidden">
+                        <div
+                            class="absolute inset-0 bg-gradient-to-br from-orange-400 to-red-500 group-hover:scale-110 transition-transform duration-500">
+                        </div>
+                        <img src="project3.png" alt="Travel Blog"
+                            class="absolute inset-0 w-full h-full object-cover opacity-90 group-hover:opacity-100 transition-opacity duration-300">
+                    </div>
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold mb-2 group-hover:text-primary transition-colors"
+                            data-i18n="project3_title">Travel Blog</h3>
+                        <p class="text-gray-600 mb-4 text-sm" data-i18n="project3_desc">A content-rich travel blog with
+                            dynamic routing and CMS integration.</p>
+                        <div class="flex gap-2 mb-4">
+                            <span class="px-3 py-1 bg-orange-100 text-orange-600 text-xs rounded-full">Next.js</span>
+                            <span class="px-3 py-1 bg-red-100 text-red-600 text-xs rounded-full">Sanity</span>
+                        </div>
+                        <a href="#" class="inline-flex items-center text-primary font-medium hover:underline gap-1">
+                            <span data-i18n="view_project">View Project</span>
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2"
+                                stroke="currentColor" class="w-4 h-4 rtl:rotate-180">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M13.5 4.5L21 12m0 0l-7.5 7.5M21 12H3" />
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20 bg-slate-900 text-white">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-center gap-12">
+                <div class="text-center md:text-start">
+                    <h2 class="text-3xl font-bold mb-4" data-i18n="contact_title">Let's Work Together</h2>
+                    <p class="text-slate-400 max-w-md" data-i18n="contact_desc">I'm currently available for freelance
+                        work and full-time opportunities.</p>
+                </div>
+
+                <div class="flex gap-6">
+                    <a href="#"
+                        class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors group">
+                        <svg class="w-5 h-5 fill-current text-slate-400 group-hover:text-white"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M24 4.557c-.883.392-1.832.656-2.828.775 1.017-.609 1.798-1.574 2.165-2.724-.951.564-2.005.974-3.127 1.195-.897-.957-2.178-1.555-3.594-1.555-3.179 0-5.515 2.966-4.797 6.045-4.091-.205-7.719-2.165-10.148-5.144-1.29 2.213-.669 5.108 1.523 6.574-.806-.026-1.566-.247-2.229-.616-.054 2.281 1.581 4.415 3.949 4.89-.693.188-1.452.232-2.224.084.626 1.956 2.444 3.379 4.6 3.419-2.07 1.623-4.678 2.348-7.29 2.04 2.179 1.397 4.768 2.212 7.548 2.212 9.142 0 14.307-7.721 13.995-14.646.962-.695 1.797-1.562 2.457-2.549z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors group">
+                        <svg class="w-5 h-5 fill-current text-slate-400 group-hover:text-white"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z" />
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="w-12 h-12 rounded-full bg-slate-800 flex items-center justify-center hover:bg-primary transition-colors group">
+                        <svg class="w-5 h-5 fill-current text-slate-400 group-hover:text-white"
+                            xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+                            <path
+                                d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="border-t border-slate-800 mt-12 pt-8 text-center text-slate-500 text-sm">
+                <p>&copy; 2024 Samir Naji. All rights reserved.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- JavaScript for Translations and Logic -->
+    <script>
+        // ==========================================
+        // TRANSLATIONS DICTIONARY / قاموس الترجمة
+        // ==========================================
+        // You can edit the text here for both languages.
+        // يمكنك تعديل النصوص هنا للغتين.
+        const translations = {
+            en: {
+                // Navbar
+                logo: "DevPortfolio",
+                nav_about: "About",
+                nav_projects: "Projects",
+                nav_contact: "Contact",
+                lang_label: "العربية", // Label for the button when in English mode
+
+                // Hero Section
+                hero_badge: "Senior Frontend Developer",
+                hero_greeting: "Hello, I'm",
+                hero_name: "Samir Naji",
+                hero_desc: "I build pixel-perfect, engaging, and accessible digital experiences. Specialized in modern web technologies and UI/UX design.",
+                hero_cta_primary: "Contact Me",
+                hero_cta_secondary: "View Projects",
+
+                // Projects Section
+                projects_title: "Featured Projects",
+                projects_subtitle: "A selection of my recent work building modern web applications.",
+
+                // Project 1
+                project1_title: "E-commerce Dashboard",
+                project1_desc: "A comprehensive dashboard for managing online stores, built with React and Tailwind.",
+
+                // Project 2
+                project2_title: "Finance App",
+                project2_desc: "Personal finance tracker with data visualization and budget management tools.",
+
+                // Project 3
+                project3_title: "Travel Blog",
+                project3_desc: "A content-rich travel blog with dynamic routing and CMS integration.",
+
+                view_project: "View Project",
+
+                // Contact Section
+                contact_title: "Let's Work Together",
+                contact_desc: "I'm currently available for freelance work and full-time opportunities."
+            },
+            ar: {
+                // Navbar
+                logo: "ملف المطور",
+                nav_about: "من أنا",
+                nav_projects: "أعمالي",
+                nav_contact: "تواصل معي",
+                lang_label: "English", // Label for the button when in Arabic mode
+
+                // Hero Section
+                hero_badge: "مطور واجهات أمامية",
+                hero_greeting: "مرحباً، أنا",
+                hero_name: "سمير ناجي",
+                hero_desc: "أقوم ببناء تجارب رقمية جذابة وسهلة الاستخدام. متخصص في تقنيات الويب الحديثة وتصميم واجهات المستخدم.",
+                hero_cta_primary: "تواصل معي",
+                hero_cta_secondary: "شاهد أعمالي",
+
+                // Projects Section
+                projects_title: "أبرز المشاريع",
+                projects_subtitle: "مختارات من أعمالي الأخيرة في بناء تطبيقات الويب الحديثة.",
+
+                // Project 1
+                project1_title: "لوحة تحكم متجر إلكتروني",
+                project1_desc: "لوحة تحكم شاملة لإدارة المتاجر الإلكترونية، مبنية باستخدام React و Tailwind.",
+
+                // Project 2
+                project2_title: "تطبيق مالي",
+                project2_desc: "متتبع مالي شخصي مع أدوات لتصور البيانات وإدارة الميزانية.",
+
+                // Project 3
+                project3_title: "مدونة سفر",
+                project3_desc: "مدونة سفر غنية بالمحتوى مع توجيه ديناميكي وتكامل مع نظام إدارة المحتوى.",
+
+                view_project: "عرض المشروع",
+
+                // Contact Section
+                contact_title: "لنعمل معاً",
+                contact_desc: "أنا متاح حالياً للعمل الحر والفرص الوظيفية بدوام كامل."
+            }
+        };
+
+        // ==========================================
+        // CORE LOGIC / المنطق الأساسي
+        // ==========================================
+
+        const langToggleBtn = document.getElementById('lang-toggle');
+        const langLabel = document.getElementById('lang-label');
+        const htmlElement = document.documentElement;
+        const bodyElement = document.body;
+
+        // Current Language State (default is 'en')
+        let currentLang = 'en';
+
+        // Function to switch language
+        function setLanguage(lang) {
+            currentLang = lang;
+
+            // 1. Update HTML attributes for Direction (LTR/RTL)
+            // تحديث اتجاه الصفحة
+            if (lang === 'ar') {
+                htmlElement.setAttribute('dir', 'rtl');
+                htmlElement.setAttribute('lang', 'ar');
+
+                // Switch Font to Cairo (Arabic)
+                bodyElement.classList.remove('font-en');
+                bodyElement.classList.add('font-ar');
+            } else {
+                htmlElement.setAttribute('dir', 'ltr');
+                htmlElement.setAttribute('lang', 'en');
+
+                // Switch Font to Poppins (English)
+                bodyElement.classList.remove('font-ar');
+                bodyElement.classList.add('font-en');
+            }
+
+            // 2. Update Text Content from Dictionary
+            // تحديث النصوص من القاموس
+            const elements = document.querySelectorAll('[data-i18n]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-i18n');
+                if (translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+
+            // 3. Update Toggle Button Text
+            // تحديث نص زر التبديل
+            langLabel.textContent = translations[lang].lang_label;
+        }
+
+        // Event Listener for Toggle Button
+        langToggleBtn.addEventListener('click', () => {
+            const newLang = currentLang === 'en' ? 'ar' : 'en';
+            setLanguage(newLang);
+        });
+
+        // Initialize (Optional: Check local storage or browser preference could be added here)
+        // setLanguage('en'); // Default is already set in HTML, but this ensures JS state matches
+    </script>
+</body>
+
+</html>
