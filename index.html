@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
+    <title>Profile Samir Naji</title>
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -64,6 +64,18 @@
         body {
             transition: all 0.3s ease-in-out;
         }
+
+        /* Scroll Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease-out;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -72,11 +84,13 @@
     <!-- Navbar -->
     <nav class="fixed w-full bg-white/90 backdrop-blur-md shadow-sm z-50 transition-all duration-300">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold text-primary" data-i18n="logo">DevPortfolio</a>
+            <a href="#" class="text-2xl font-bold text-primary" data-i18n="logo">Samir Naji</a>
 
             <div class="flex items-center gap-6">
                 <div class="hidden md:flex gap-6">
                     <a href="#about" class="hover:text-primary transition-colors" data-i18n="nav_about">About</a>
+                    <a href="#services" class="hover:text-primary transition-colors"
+                        data-i18n="nav_services">Services</a>
                     <a href="#projects" class="hover:text-primary transition-colors"
                         data-i18n="nav_projects">Projects</a>
                     <a href="#contact" class="hover:text-primary transition-colors" data-i18n="nav_contact">Contact</a>
@@ -97,20 +111,20 @@
     </nav>
 
     <!-- Hero Section -->
-    <section id="about" class="min-h-screen flex items-center pt-20">
+    <section id="about" class="min-h-screen flex items-center pt-20 reveal">
         <div class="container mx-auto px-6">
             <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12">
                 <!-- Text Content -->
                 <div class="w-full md:w-1/2 space-y-6 text-center md:text-start">
                     <span class="inline-block px-4 py-2 rounded-full bg-blue-100 text-primary font-medium text-sm"
-                        data-i18n="hero_badge">Senior Frontend Developer</span>
+                        data-i18n="hero_badge">Creative Designer & Photographer</span>
                     <h1 class="text-4xl md:text-6xl font-bold leading-tight">
                         <span data-i18n="hero_greeting">Hello, I'm</span> <br>
-                        <span class="text-primary" data-i18n="hero_name">Ahmed Ali</span>
+                        <span class="text-primary" data-i18n="hero_name">Samir Naji</span>
                     </h1>
                     <p class="text-lg text-gray-600 leading-relaxed max-w-lg mx-auto md:mx-0" data-i18n="hero_desc">
-                        I build pixel-perfect, engaging, and accessible digital experiences. Specialized in modern web
-                        technologies and UI/UX design.
+                        I am a 17-year-old Photographer, Logo Designer, and Creative Artist. I bring ideas to life
+                        through visuals and design.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
                         <a href="#contact"
@@ -138,8 +152,71 @@
         </div>
     </section>
 
+    <!-- Services Section -->
+    <section id="services" class="py-20 bg-gray-50 reveal">
+        <div class="container mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="services_title">My Services</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto" data-i18n="services_subtitle">Professional creative services
+                    tailored to your needs.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                    <div
+                        class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="service_photo_title">Photography</h3>
+                    <p class="text-gray-600" data-i18n="service_photo_desc">Professional photography sessions for
+                        portraits, events, and products with high-end editing.</p>
+                </div>
+
+                <!-- Service 2 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                    <div
+                        class="w-16 h-16 bg-purple-100 text-purple-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M9.53 16.122a3 3 0 00-5.78 1.128 2.25 2.25 0 01-2.4 2.245 4.5 4.5 0 008.4-2.245c0-.399-.078-.78-.22-1.128zm0 0a15.998 15.998 0 003.388-1.62m-5.043-.025a15.994 15.994 0 011.622-3.395m3.42 3.42a15.995 15.995 0 004.764-4.648l3.876-5.814a1.151 1.151 0 00-1.597-1.597L14.85 6.361a15.996 15.996 0 00-4.647 4.763m0 0c-.461.949-.86 1.955-1.185 2.983m0 0c-.347-.695-.82-1.327-1.373-1.88" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="service_logo_title">Logo Design</h3>
+                    <p class="text-gray-600" data-i18n="service_logo_desc">Creating unique and memorable logos that
+                        represent your brand identity perfectly.</p>
+                </div>
+
+                <!-- Service 3 -->
+                <div
+                    class="bg-white p-8 rounded-xl shadow-lg hover:shadow-2xl transition-all duration-300 transform hover:-translate-y-2 text-center">
+                    <div
+                        class="w-16 h-16 bg-amber-100 text-amber-600 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5"
+                            stroke="currentColor" class="w-8 h-8">
+                            <path stroke-linecap="round" stroke-linejoin="round"
+                                d="M10.5 1.5H8.25A2.25 2.25 0 006 3.75v16.5a2.25 2.25 0 002.25 2.25h7.5A2.25 2.25 0 0018 20.25V3.75a2.25 2.25 0 00-2.25-2.25H13.5m-3 0V3h3V1.5m-3 0h3m-3 18.75h3" />
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold mb-4" data-i18n="service_design_title">Graphic Design</h3>
+                    <p class="text-gray-600" data-i18n="service_design_desc">Custom designs for social media, business
+                        cards, and marketing materials.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Projects Section -->
-    <section id="projects" class="py-20 bg-white">
+    <section id="projects" class="py-20 bg-white reveal">
         <div class="container mx-auto px-6">
             <div class="text-center mb-16">
                 <h2 class="text-3xl md:text-4xl font-bold mb-4" data-i18n="projects_title">Featured Projects</h2>
@@ -242,7 +319,7 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-slate-900 text-white">
+    <section id="contact" class="py-20 bg-slate-900 text-white reveal">
         <div class="container mx-auto px-6">
             <div class="flex flex-col md:flex-row justify-between items-center gap-12">
                 <div class="text-center md:text-start">
@@ -294,19 +371,30 @@
         const translations = {
             en: {
                 // Navbar
-                logo: "DevPortfolio",
+                logo: "Samir Naji",
                 nav_about: "About",
+                nav_services: "Services",
                 nav_projects: "Projects",
                 nav_contact: "Contact",
                 lang_label: "العربية", // Label for the button when in English mode
 
                 // Hero Section
-                hero_badge: "Senior Frontend Developer",
+                hero_badge: "Photographer & Designer",
                 hero_greeting: "Hello, I'm",
-                hero_name: "Samir Naji",
-                hero_desc: "I build pixel-perfect, engaging, and accessible digital experiences. Specialized in modern web technologies and UI/UX design.",
+                hero_name: "Samir Naji (Ghazal)",
+                hero_desc: "I am a 17-year-old Photographer, Logo Designer, and Creative Artist. I bring ideas to life through visuals and design.",
                 hero_cta_primary: "Contact Me",
                 hero_cta_secondary: "View Projects",
+
+                // Services Section
+                services_title: "My Services",
+                services_subtitle: "Professional creative services tailored to your needs.",
+                service_photo_title: "Photography",
+                service_photo_desc: "Professional photography sessions for portraits, events, and products with high-end editing.",
+                service_logo_title: "Logo Design",
+                service_logo_desc: "Creating unique and memorable logos that represent your brand identity perfectly.",
+                service_design_title: "Graphic Design",
+                service_design_desc: "Custom designs for social media, business cards, and marketing materials.",
 
                 // Projects Section
                 projects_title: "Featured Projects",
@@ -332,19 +420,30 @@
             },
             ar: {
                 // Navbar
-                logo: "ملف المطور",
+                logo: "سمير ناجي",
                 nav_about: "من أنا",
+                nav_services: "خدماتي",
                 nav_projects: "أعمالي",
                 nav_contact: "تواصل معي",
                 lang_label: "English", // Label for the button when in Arabic mode
 
                 // Hero Section
-                hero_badge: "مطور واجهات أمامية",
+                hero_badge: "مصور ومصمم",
                 hero_greeting: "مرحباً، أنا",
-                hero_name: "سمير ناجي",
-                hero_desc: "أقوم ببناء تجارب رقمية جذابة وسهلة الاستخدام. متخصص في تقنيات الويب الحديثة وتصميم واجهات المستخدم.",
+                hero_name: "سمير ناجي (غزال)",
+                hero_desc: "عمري 17 سنة، مصور فوتوغرافي ومصمم شعارات وفنان مبدع. أحول الأفكار إلى واقع من خلال الصور والتصاميم.",
                 hero_cta_primary: "تواصل معي",
                 hero_cta_secondary: "شاهد أعمالي",
+
+                // Services Section
+                services_title: "خدماتي",
+                services_subtitle: "خدمات إبداعية احترافية مصممة خصيصاً لاحتياجاتك.",
+                service_photo_title: "التصوير الفوتوغرافي",
+                service_photo_desc: "جلسات تصوير احترافية للبورتريه والمناسبات والمنتجات مع تعديل عالي الجودة.",
+                service_logo_title: "تصميم الشعارات",
+                service_logo_desc: "تصميم شعارات فريدة ومميزة تعبر عن هوية علامتك التجارية بشكل مثالي.",
+                service_design_title: "التصميم الجرافيكي",
+                service_design_desc: "تصاميم مخصصة لوسائل التواصل الاجتماعي وبطاقات العمل والمواد التسويقية.",
 
                 // Projects Section
                 projects_title: "أبرز المشاريع",
@@ -427,6 +526,24 @@
 
         // Initialize (Optional: Check local storage or browser preference could be added here)
         // setLanguage('en'); // Default is already set in HTML, but this ensures JS state matches
+
+        // ==========================================
+        // SCROLL ANIMATIONS / تحريكات التمرير
+        // ==========================================
+        function reveal() {
+            var reveals = document.querySelectorAll(".reveal");
+            for (var i = 0; i < reveals.length; i++) {
+                var windowHeight = window.innerHeight;
+                var elementTop = reveals[i].getBoundingClientRect().top;
+                var elementVisible = 150;
+                if (elementTop < windowHeight - elementVisible) {
+                    reveals[i].classList.add("active");
+                }
+            }
+        }
+        window.addEventListener("scroll", reveal);
+        // Trigger once on load
+        reveal();
     </script>
 </body>
 
